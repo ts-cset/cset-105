@@ -1,6 +1,6 @@
 # CSET-105: Intro To Web Applications
 
-View these notes at [https://ts-cset.github.io/cset-105/]().
+View these notes at [ts-cset.github.io/cset-105/](https://ts-cset.github.io/cset-105/).
 
 
 ## Lecture Notes

@@ -1,0 +1,81 @@
+@import "nord.css";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: #fefefe;;
+  color: var(--nord1);
+  font-family: Courier, monospace;
+  font-size: calc(.75rem + 1.75vw);
+  margin: 8vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.5px;
+}
+
+a, a:visited {
+  color: var(--nord7);
+}
+
+a:hover, a:focus {
+  color: var(--nord11);
+}
+
+code, pre, .remark-code,
+.remark-inline-code
+{
+  font-weight: 400;
+}
+
+strong, b {
+  font-weight: 700;
+}
+em, i {
+  font-style: italics;
+}
+
+ol {
+  padding-left: 9vw;
+}
+
+.zero { color: var(--nord0); }
+.one { color: var(--nord1); }
+.two { color: var(--nord2); }
+.three { color: var(--nord3); }
+.four { color: var(--nord4); }
+.five { color: var(--nord5); }
+.six { color: var(--nord6); }
+.seven { color: var(--nord7); }
+.eight { color: var(--nord8); }
+.nine { color: var(--nord9); }
+.ten { color: var(--nord10); }
+.eleven { color: var(--nord11); }
+.twelve { color: var(--nord12); }
+.thirteen { color: var(--nord13); }
+.fourteen { color: var(--nord14); }
+.fifteen { color: var(--nord15); }
+.sixteen { color: var(--nord16); }
+
+
+.strike { text-decoration: line-through; }
+
+
+.remark-container {
+  background: var(--nord0);
+}
+
+.remark-slide-scaler {
+  -webkit-box-shadow: 0 0 40px #000;
+     -moz-box-shadow: 0 0 40px #000;
+          box-shadow: 0 0 40px #000;
+}
+
+.remark-slide-content {
+  background: #fefefe;
+  color: var(--nord1);
+  font-size: calc(.75rem + 1.5vw);
+  padding: 3vw;
+}

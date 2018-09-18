@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More Git</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle, center
+
+more git
+
+---
+
+![Branch Diagram](https://wac-cdn.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg?cdnVersion=jx)
+
+---
+class: center, middle
+
+# .eight[A branch represents an independent line of development.]
+
+---
+class: middle, center
+
+![Master Branch](https://wac-cdn.atlassian.com/dam/jcr:80aa77d2-c28f-415e-ab10-e3612456a9c1/02.svg?cdnVersion=jx)
+
+---
+class: middle
+
+```bash
+$ git branch crazy-experiment
+```
+---
+class: middle, center
+
+![Master and Crazy-Experiment Branches](https://wac-cdn.atlassian.com/dam/jcr:b0e2f237-9337-4385-be22-43f623e133d0/03.svg?cdnVersion=jx)
+
+---
+class: center, middle
+
+# .fouteen[Why Use Branches?]
+
+---
+
+# Use Branches to Encapsulate Changes
+
+- Avoids new unstable code in main code base
+- Clean up history before merging
+- Work in parallel
+
+---
+class: center, middle
+
+# .fouteen[How Do We Use Branches?]
+
+---
+class: middle
+
+```bash
+$ git checkout -b &lt;new-branch&gt;
+$ git checkout &lt;existing-branch&gt;
+```
+
+???
+By default, bases off of current HEAD
+
+---
+
+# Checkout Updates `HEAD`
+
+- `HEAD` refers to the current snapshot
+- Branch (which points at a Commit) or Commit
+- New Commits are part of a Branch's line of development
+- New Commits can't exist outside of a line of development
+
+---
+class: middle, center
+
+# .eleven[When you are in a Detached HEAD, there's no way to reference new Commits.]
+
+---
+class: middle, center
+
+![Merging Diagram](https://wac-cdn.atlassian.com/dam/jcr:83323200-3c57-4c29-9b7e-e67e98745427/Branch-1.png?cdnVersion=jx)
+
+---
+class: middle, center
+
+# Merging Branches is merging two different lines of development.
+
+---
+class: middle, center
+
+# Time for a Lab
+
+---
+class: center, middle
+
+# .fourteen[Why Use Commit Messages?]
+
+---
+
+- .eleven[made some edits]
+- .eleven[changed h1 to h2]
+- .eleven[worked on new search feature]
+- .eleven[oops]
+
+---
+class: middle, center
+
+# The commit is all of your code changes.
+
+# .eight[The commit message tells you why.]
+
+---
+
+# Proper Commit Messages
+
+- Short imperative summary  (Email Subject)
+- Followed by detailed explanation  (Email Body)
+- .eleven[Separated by a blank line!]
+
+[Tim Pope: A Note About Git Commit Messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+
+---
+class: middle, center
+
+# .fourteen[Why do I keep seeing .DS_Store files?]
+
+---
+
+# Let's Remove Them
+
+If you already commited a file and want to remove it:
+```bash
+$ git rm --cached .DS_Store
+```
+
+---
+
+# git rm
+
+- The opposite of `git add`
+- Remove files tracked by git
+- Or remove files from both the staging area and the working directory
+
+---
+class: middle, center
+
+# .fourteen[Uh... I still see .DS_Store files.]
+
+---
+
+# Let's Ignore Them
+
+In your terminal:
+```bash
+$ git config --global core.excludesfile ~/.gitignore_global
+```
+
+---
+
+# Let's Ignore Them
+
+- A .eight[gitignore] file specifies intentionally untracked files to ignore
+- Usually project specific in a file at `my-project/.gitignore`
+
+[Github's gitignore templates](https://github.com/github/gitignore)
+
+---
+class: center, middle
+
+[Practice Merge Conflicts in Local Branches](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
+
+---
+class: center, middle
+
+[Practice Merge Conflicts in Remote Branches](lab_merge-conflicts.html)
+
+---
+class: center, middle
+
+[Practice Viewing Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
+
+
+
+    </textarea>
+
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

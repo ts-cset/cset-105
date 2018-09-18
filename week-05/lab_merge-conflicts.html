@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab: Merge Conflicts</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="../assets/slides.css" />
+
+  <style>
+    code {
+      background: #eee;
+      color: var(--nord9);
+      padding: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    CSET-110 Lab:<br>
+    Merge Conflicts
+  </h1>
+
+  <p>
+    Today, we're going to learn how to handle merge conflicts. This can be a scary situation to be in when you're new to git. Hopefully our practice will help you feel more comfortable with it. But to practice this, we'll have to intentionally get into trouble first. ;)
+  </p>
+
+  <p>
+    You'll have to follow the directions below very carefully, the order of these instructions is very important.
+  </p>
+
+  <hr>
+
+  <h2>Instructions</h2>
+
+  <ol>
+    <li>Find three partners.</li>
+    <li>One of you needs to create a new repo on Github called <code>merge-conflicts</code>. Make sure "Initialize with a README" is checked.</li>
+    <li>Go to the Settings tab, then click Collaborators in the sidebar. Give your partners access to the repo. They'll need to accept the invitation via email.</li>
+    <li>All four of you should clone the repo locally. Open up the README.md file in your editor and you should see the text <code># merge-conflicts</code> on line 1.</li>
+    <li>Now the fun begins:
+      <ol>
+        <li>The owner of the repo needs to use the pencil icon to edit the file directly on Github and replace <code># merge-conflicts</code> with the words <code># attempt one</code>. Hit the button to commit this directly on master. <em>Remember, this isn't the usual workflow. We're just trying to replicate having someone else change the remote repo to be different what you have in your local repo. <strong>Don't pull this change yet, we're intentionally trying to break things</strong></em></li>
+        <li>On your local repository, one of you should use your editor to replace <code># merge-conflicts</code> with <code># &lt;your name&gt;</code></li>
+        <li>Add the file, commit it, and try to push. You should get a warning saying origin/master has a new change that you don't have. You have successfully created the "problem."</li>
+        <li>Now we need to fix it. Run git pull which will try to merge the two new changes, but it will fail since we changed the same line in both commits. Now you need to resolve the conflict in your editor</li>
+        <li>Once you've resolved it, commit it and push.</li>
+        <li>All four of you should pull and you should all see the first person's name on line 1. Congrats, you've successfully created a merge conflict and resolved it! Now your other partners need to try it. Repeat these inner steps for everyone in your group.</li>
+      </ol>
+    </li>
+  </ol>
+</body>
+</html>

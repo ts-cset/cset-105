@@ -9,33 +9,40 @@
   <body>
     <textarea id="source">
 
-# Agenda
-
-1. [ ] Recap programming concepts from yesterday
-2. [ ] Hand out laptops
-3. [ ] Set up new machines
-
----
-
 class: middle, center
 
-# Recap
+.right[.fourteen[Daily Journal]]
+
+# Of all the tasks or activities you did last night, what were the hardest to think about programmatically? What about the easiest?
 
 ---
 
-# First off, which class are we in right now?
+# Today's Goal
+
+To become more familiar with your one and only tool.
 
 ---
 
-# First off, which class are we in right now?
+# Agenda
 
-# .eight[CSET 105]
+1. [Review](#review)
+2. [Phone Book Algorithm](#algorithm)
+3. [Discuss Mac Reading](#reading)
+4. [Files and Folders](#files)
+
+---
+
+name: review
+class: middle, center
+
+# Review
 
 ---
 
 # Did you check your email before class today?
 
 ---
+count: false
 
 # Did you check your email before class today?
 
@@ -47,6 +54,8 @@ class: middle, center
 
 ---
 
+count: false
+
 # Did you get the copies of the syllabi?
 
 # .eight[That's probably an important thing to have on hand.]
@@ -57,25 +66,37 @@ class: middle, center
 
 ---
 
+count: false
+
 # Did you notice how I told you something was "important" just then?
 
 # .eight[Then you should write that thing down.]
 
 ---
 
-# Algorithm
+class: center, middle
+
+# Fill out the review sheet
 
 ---
 
 # Algorithm
 
-# .eight[A process or set of rules to be followed in calculations or other problem-solving operations]
+---
+
+count: false
+
+# Algorithm
+
+# .eight[A process or set of rules to be followed in calculations or other problem-solving operations.]
 
 ---
 
 # Programming Language
 
 ---
+
+count: false
 
 # Programming Language
 
@@ -87,9 +108,11 @@ class: middle, center
 
 ---
 
+count: false
+
 # Pseudocode
 
-# .eight[A notation that resembles a simplified programming language.]
+# .eight[Informal notation in regular English that resembles a programming language.]
 
 ---
 
@@ -97,19 +120,11 @@ class: middle, center
 
 ---
 
+count: false
+
 # Binary
 
-# .eight[A system of numerical notation that has 2 rather than 10 as a base]
-
----
-
-# 010
-
----
-
-# 010
-
-# <span class="eight">#2</span>
+# .eight[A system of numerical notation that has 2 rather than 10 as a base.]
 
 ---
 
@@ -123,41 +138,91 @@ class: middle, center
 
 ---
 
-# The binary number .eight[01000001] could mean the letter .eight[A] or the decimal number .eight[65]. So what is the difference?
-
----
-
-## .eight[These are just symbols. The glyph .one[123] is just a symbol we created for .one[one hundred and twenty three] things, which is another set of symbols. The program that interprets those symbols attributes meaning to those symbols.]
-
----
-
-# Agenda
-
-1. [x] Recap programming concepts from yesterday
-2. [ ] Hand out laptops
-3. [ ] Set up new machines
-
----
-
-# Agenda
-
-1. [x] Recap programming concepts from yesterday
-2. [ ] .strike[Hand out laptops]
-3. [ ] .strike[Set up new machines]
-
----
-
 class: middle, center
 
 # [Watch the 10,000 Domino Computer](https://www.youtube.com/watch?v=OpLU__bhu2w)
 
 ---
+name: algorithm
 
-# .eight[Homework:]
+# Phone Book Problem
 
-## Go to [macforbeginners.com/articles/](https://www.macforbeginners.com/articles/) and read the following in order:
+Let's say you want to find your friend Mike Smith in the phone book. Write an algorithm that would you could follow to find him.
 
 ---
+
+# Phone Book Problem
+
+.eight[Option #1]
+
+Start at the beginning, flip through each page one at a time until we find him or get to the end.
+
+---
+
+# Phone Book Problem
+
+.eight[Option #2]
+
+Start at the beginning, flip through pages **two** at a time until we find him or get to the end.
+
+---
+
+# Phone Book Problem
+
+.eight[Option #3]
+
+Open to the middle and see what letter you're at. Throw away the half of the book that you know he isn't in. Repeat this until you find him, dividing the problem in half each time.
+
+---
+
+# Phone Book Problem
+
+.eight[Option #3]
+
+Open to the middle and see what letter you're at. Throw away the half of the book that you know he isn't in. Repeat this until you find him, dividing the problem in half each time.
+
+.fourteen[WINNER]
+
+---
+
+class: middle, center
+
+![Algorithm Efficiency](https://cs50.harvard.edu/college/2018/fall/weeks/0/notes/running_time.png)
+
+---
+
+```
+ 0 pick up phone book
+ 1 open to middle of phone book
+ 2 look at names
+ 3 if Smith is among names
+ 4     call Mike
+ 5 else if Smith is earlier in book
+ 6     open to middle of left half of book
+ 7     go back to step 2
+ 8 else if Smith is later in book
+ 9     open to middle of right half of book
+10     go back to step 2
+11 else
+12     quit
+```
+
+---
+
+# Code is composed of:
+
+- Functions
+- Conditionals
+- Boolean Expressions
+- Loops
+
+---
+
+name: reading
+
+# Yesterday's Reading
+
+[macforbeginners.com/articles/](https://www.macforbeginners.com/articles/)
 
 - Mac OS X Introduction
 - Browsing Through Files
@@ -168,11 +233,28 @@ class: middle, center
 
 ---
 
-# Tomorrow
+class: middle, center
 
-## We'll hopefully pass out the laptops!
+# Do you have any questions on the reading?
 
-## Those familiar with Macs already should still read the articles and come prepared to help your classmates.
+---
+
+name: files
+
+# Files and Folders
+
+---
+count: false
+
+# Files and Folders
+
+.eight[Everything is stored in a file.]
+
+- Files are just buckets of bits stored in the hard drive
+- File names are really addresses of where those bits are stored
+- Folders aren't containers, they're special files that list a bunch of file names.
+
+From now on, we'll call these addresses the file .eight[path].
 
 ---
 

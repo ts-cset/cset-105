@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Understanding The Path</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+# Today's Goal
+
+To understand how executable scripts work using the `$PATH` variable and explore some options for creating your own.
+
+---
+
+# Agenda:
+
+1. [Review](#redirect)
+2. [Understanding the Environment](#environment)
+3. [Workshop](#workshop)
+
+---
+
+name: review
+
+# Redirect Operators
+
+- Overwrite Operator
+- Append Operator
+- Input Operator
+- Pipe Operator
+
+---
+
+count: false
+
+# Redirect Operators
+
+- Overwrite Operator: .eight[&gt;]
+- Append Operator: .eight[&gt;].eight[&gt;]
+- Input Operator: .eight[&lt;]
+- Pipe Operator: .eight[|]
+
+---
+
+# Commands That Use Redirects
+
+- .eight[wc]
+- .eight[sort]
+- .eight[uniq]
+- .eight[grep]
+- .eight[sed]
+
+---
+
+# Editing Our Settings
+
+- Which text editors have we seen so far?
+- What two files configure BASH?
+- Which command reloads our settings?
+- Which command creates a variable?
+
+---
+
+count: false
+
+# Editing Our Settings
+
+- Which text editors have we seen so far? .eight[nano, vim, TextEdit]
+- What two files configure BASH? .eight[.bashrc, .bash_profile]
+- Which command reloads our settings? .eight[source]
+- Which command creates a variable? .eight[export]
+
+---
+
+# Common Environment Variables
+
+- .eight[$USER]
+- .eight[$HOME]
+- .eight[$PS1]
+- .eight[$PATH]
+
+Use .eight[echo $VARIABLE] to print the values for each variable.
+
+---
+
+name: environment
+class: middle, center
+
+# So what is the Environment?
+
+---
+
+# The environment is the context that your programs are running in.
+
+---
+
+class: middle, center
+
+<div style="padding: 1rem; margin: 1rem; border: 2px solid #000;">
+  Computer
+  <div style="padding: 1rem; margin: 1rem; border: 2px solid #000;">
+    BASH
+  </div>
+</div>
+
+---
+
+class: middle, center
+
+<div style="padding: 1rem; margin: 1rem; border: 2px solid #000;">
+  Computer
+  <div style="padding: 1rem; margin: 1rem; border: 2px solid #000;">
+    BASH
+    <div style="padding: 1rem; margin: 1rem; border: 2px solid #000;">
+      nano
+    </div>
+  </div>
+</div>
+
+---
+
+# Where did this command come from?
+
+- BASH looks through each directory in the $PATH
+- When it finds the program, then it can run it
+
+```sh
+$ which nano
+/usr/bin/nano
+```
+
+---
+
+# Let's look at the PATH
+
+```sh
+$ echo $PATH
+```
+
+.fourteen[Is /usr/bin/ in the list of directories?]
+
+---
+
+# What else is in there?
+
+```sh
+$ ls /usr/bin/
+```
+
+.fourteen[Recognize anything?]
+
+---
+
+class: middle, center
+
+# .eleven[Time to get dangerous!]
+
+We're going to break our $PATH
+
+---
+
+# Step 1: Make a new script
+
+```sh
+$ mkdir ~/scripts
+$ cd ~/scripts
+$ touch rm
+$ ls -l
+total 0
+-rw-r--r--  1 zach  staff  0 Aug 27 12:45 rm
+```
+
+---
+
+# Step 2: Make it executable
+
+```sh
+$ chmod +x rm
+$ ls -l
+total 0
+-rwxr-xr-x  1 zach  staff  0 Aug 27 12:45 rm
+```
+
+---
+
+# Step 3: Add lines to the script
+
+```sh
+$ nano rm
+```
+
+And add these lines to it:
+```sh
+#!/bin/bash
+
+echo "Hello World"
+```
+
+---
+
+# Step 3b: Test the script
+
+```sh
+$ ./rm
+Hello World
+```
+
+---
+
+# Step 4: Add a directory to the $PATH
+
+```sh
+$ nano ~/.bash_profile
+```
+
+At the bottom, add this line:
+
+```sh
+export $PATH="$HOME/scripts:$PATH"
+```
+
+---
+
+# Now try to delete your new script
+
+```sh
+$ rm rm
+Hello World
+```
+
+---
+
+
+name: workshop
+class: middle, center
+
+# Workshop
+
+## .eight[Your chance to explore something new or practice what we've learned.]
+
+---
+
+# Workshop
+
+- [Learn Enough Command Line to Be Dangerous](https://www.learnenough.com/command-line-tutorial)
+- [101 Bash Commands and Tips for Beginners to Experts](https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je)
+- [CLI Challenges](https://cmdchallenge.com/)
+- [Codecademy: Learn Bash Scripting](https://www.codecademy.com/courses/learn-the-command-line/lessons/learn-bash-scripting/exercises/introduction)
+- [TLDP: Bash Programming Intro](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
+
+---
+
+class: middle, center
+
+# The End!
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

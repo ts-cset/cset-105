@@ -22,38 +22,36 @@ class: middle
 
 # Agenda:
 
-- [ ] Install Git
-- [ ] What is Version Control?
-- [ ] The Philosophy of Git
-- [ ] Basic Git Usage
-- [ ] More Practice
+1. [Install Git](#install)
+2. [What is Version Control?](#version-control)
+3. [Basic Git Usage](#usage)
+4. [The Philosophy of Git](#philosophy)
+5. [More Practice](#practice)
 
 ---
 class: middle, center
+name: install
 
-# Install Git via Homebrew
+# Install Git
 
-## Go to [https://brew.sh]()
-## and follow their install instructions
+```sh
+$ brew install git
+```
 
 ---
+name: version-control
 class: middle
 
 # What is Version Control?
 
-- .eight[Collaborate] with others to create anything from small websites to large programs
 - .eight[Track History] to see your changes over time and revert if mistakes were made
 - .eight[Branch] into different versions to work in parallel
+- .eight[Collaborate] with others to create anything from small websites to large programs
 
 ???
 SCM: Source Code Management
 VCS: Version Control System
 So why is this important?
-
----
-class: middle, center
-
-# .eleven[How did your last group project go?]
 
 ---
 class: middle, center
@@ -64,6 +62,12 @@ class: middle, center
 class: middle, center
 
 # .eleven[Have you ever worked on something for a while and wished you could undo back to a certain point in time?]
+
+---
+class: middle, center
+
+# .eleven[How did your last group project go?]
+
 
 ---
 class: middle, center
@@ -98,6 +102,7 @@ class: middle, center
 ![Not Github](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnAdQvQAqUbfQPgNBz06uSlkIXTweuBkY1_JEfFncv9BBl4zF2yg)
 
 ---
+
 class: middle
 
 # Short History
@@ -111,51 +116,8 @@ class: middle
 Distributed VCS
 
 ---
-class: middle
 
-# Design Goals
-
-- Speedy
-- Simple
-- Non-linear
-- Robust
-- Distributed
-
-???
-Robust meaning it can handle large projects like Linux over a very long history.
-
----
-class: middle, center
-
-# Centralized
-# vs.
-# Decentralized
-
----
-class: middle
-
-# .eight[Centralized:]
-
-- CVS, SVN
-- One server that acts as the master version
-- Each client grabs a small copy to work on
-- Then merges changes back into master
-
----
-class: middle
-
-# .eight[Decentralized:]
-
-- Git, Mercurial
-- Each client has their own full copy
-- Changes are reconciled locally
-
----
-class: middle, center
-
-![Centralized vs. Decentralized Diagram](https://www.atlassian.com/dam/jcr:9d51f0ee-5946-4be2-886c-ff040ef8c1a1/03.svg)
-
----
+name: usage
 class: middle, center
 
 # How does it work?
@@ -166,92 +128,35 @@ class: middle
 # Generic Workflow
 
 1. Create a .eight[Repository] for your project
-2. .eight[Add] files and .eight[Commit] them
-3. .eight[Push] your changes to share with others
-4. .eight[Pull] and .eight[Checkout] others changes
-5. .eight[Branch] into other versions and .eight[Merge] them together again
+2. .eight[Add] files for git to track them
+3. .eight[Commit] your files when you're done working on them
+4. Make .eight[Branches] for experimental work
+5. .eight[Checkout] commits or branches to look at different versions of your code
 
 ???
 I don't mean specific versions like 10.13.05, I just mean generic version where something is different on mine compared to yours.
 
 ---
-class: middle, center
 
-![Snapshots over time](https://git-scm.com/book/en/v2/images/snapshots.png)
-
-???
-Snapshots over time. Every time you commit, or save, git takes a picture of what
-your files look like and stores a reference to that snapshot. For efficiency, git
-doesn't care about anything that hasn't changed. So your project turns into a series
-of changes, like a flipbook.
-
----
-class: middle, center
-
-![Motion Picture Horse](https://forgottennewsmakers.files.wordpress.com/2010/02/muybridge_race_horse_animated2.gif)
-
----
 class: middle
 
-# Git Philosophy
+# Team Workflow
 
-- Streams of Data
-- Everything is Local
-- Data Integrity
-
-???
-We already talked about the first two.
-Everything is check-summed before it's stored and then referred to by that checksum. Fancy way to mean it's impossible to change anything without git knowing about it.
-
----
-class: middle
-
-# SHA-1 Hash
-
-```bash
-24b9da6552252987aa493b52f8696cd6d3b00373
-```
-
-???
-Git stores everything by this instead of the name. Think of it like a code. Your file is the input, this is the output. You change your file, this changes.
-
----
-class: middle
-
-# The Three States
-
-- .eight[Commited]: the file is stored safely in git's database
-- .eight[Modified]: the file has changed from the last commit
-- .eight[Staged]: the modified file has been marked to be included in the next commit snapshot
-
----
-class: middle
-
-# The Three Sections
-
-- .eight[Git Directory]: holds the project's metadata and history
-- .eight[Working Directory]: a single snapshot of one version of the project, pulled from the database for you to use/modify
-- .eight[Staging Area]: a single file in the git directory that stores info about what is going into your next commit
-
----
-class: middle, center
-
-![The Three States](https://git-scm.com/book/en/v2/images/areas.png)
-
-???
-1. checkout the project from the database
-2. make changes in working directory
-3. pick the changes you want to store
-4. commit them
+1. Share your .eight[Repository]
+2. .eight[Push] your commits so others can get your code
+3. .eight[Pull] any new commits created by your team so you can update your code with new changes
+4. Resolve .eight[Merge Conflicts] that might happen when changes happen at the same time
 
 ---
 
 # First Things First
 
-Homebrew should be installed by now, so now we install git and configure it.
+Git should be installed by now, so now we configure it.
 
 ```bash
-$ brew install git
+$ git --version
+git version 2.23.0
+
 $ git config --global user.name "Your Name"
 $ git config --global user.email your@email.com
 ```
@@ -410,6 +315,76 @@ class: middle, center
 ## [Codecademy - Learn Git](https://www.codecademy.com/learn/learn-git)
 
 ---
+class: middle, center
+
+![Snapshots over time](https://git-scm.com/book/en/v2/images/snapshots.png)
+
+???
+Snapshots over time. Every time you commit, or save, git takes a picture of what
+your files look like and stores a reference to that snapshot. For efficiency, git
+doesn't care about anything that hasn't changed. So your project turns into a series
+of changes, like a flipbook.
+
+---
+class: middle, center
+
+![Motion Picture Horse](https://forgottennewsmakers.files.wordpress.com/2010/02/muybridge_race_horse_animated2.gif)
+
+---
+class: middle
+
+# Git Philosophy
+
+- Streams of Data
+- Everything is Local
+- Data Integrity
+
+???
+We already talked about the first two.
+Everything is check-summed before it's stored and then referred to by that checksum. Fancy way to mean it's impossible to change anything without git knowing about it.
+
+---
+class: middle
+
+# SHA-1 Hash
+
+```bash
+24b9da6552252987aa493b52f8696cd6d3b00373
+```
+
+???
+Git stores everything by this instead of the name. Think of it like a code. Your file is the input, this is the output. You change your file, this changes.
+
+---
+class: middle
+
+# The Three States
+
+- .eight[Commited]: the file is stored safely in git's database
+- .eight[Modified]: the file has changed from the last commit
+- .eight[Staged]: the modified file has been marked to be included in the next commit snapshot
+
+---
+class: middle
+
+# The Three Sections
+
+- .eight[Git Directory]: holds the project's metadata and history
+- .eight[Working Directory]: a single snapshot of one version of the project, pulled from the database for you to use/modify
+- .eight[Staging Area]: a single file in the git directory that stores info about what is going into your next commit
+
+---
+class: middle, center
+
+![The Three States](https://git-scm.com/book/en/v2/images/areas.png)
+
+???
+1. checkout the project from the database
+2. make changes in working directory
+3. pick the changes you want to store
+4. commit them
+
+---
 
 # More Practice
 
@@ -417,6 +392,7 @@ class: middle, center
 - [Atlassian Tutorial - Getting Started](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
 - [Github Guide](https://guides.github.com/introduction/git-handbook/)
 - [Github Practice - Git-it](https://github.com/jlord/git-it-electron#what-to-install)
+
 
 ---
 

@@ -18,30 +18,190 @@ class: middle, center
 
 [Make an Account](http://github.com/)
 
----
-class: middle, center
+When you're done, post the link to your account in #cset-105, something like:
+.eight[https://github.com/username]
 
-[Hello World guide]()
+---
+
+# Goals:
+
+- Learn what GitHub adds to our git workflow
+- Practice using our remote commands on GitHub repos
+- Learn about Forks, Pull Requests, and Issues
 
 ---
 
 # Setup SSH
-<!-- todo -->
+
+1. [Read about SSH](https://help.github.com/en/articles/about-ssh)
+2. [Generate new SSH keys](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+3. [Add keys to GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account)
+4. [Test the connection](https://help.github.com/en/articles/testing-your-ssh-connection)
 
 ---
 
-# Creating a Central Repo
-<!-- todo -->
+# Creating a GitHub Repo
+
+[Here's a Guide](https://help.github.com/en/articles/create-a-repo)
+
+But, it depends:
+- Do you already have a local repo with commits?
+- Or do you want a brand new repo?
+
+---
+
+# Creating a GitHub Repo
+
+## Option 1
+
+1. You've already ran .eight[git init] locally
+2. Click .eight[+] and name your new repo on GitHub
+3. **DO NOT** check "Initialize with a README"
+4. Locally, use .eight[git remote add] to point to the GitHub repo
+5. Then push your code to the remote
+
+---
+
+# Creating a GitHub Repo
+
+## Option 1
+
+```bash
+$ git remote add origin git@github.com:user/repo.git
+$ git push -u origin master
+```
+
+---
+
+# Creating a GitHub Repo
+
+## Option 2
+
+1. Click .eight[+] and name your new repo on GitHub
+2. **Check** "Initialize with a README" which is your first commit
+3. Optionally, add a .eight[.gitignore] file and a License
+4. Locally, use .eight[git clone] to download your new repo
+
+---
+
+# Creating a GitHub Repo
+
+## Option 2
+
+```bash
+$ git clone git@github.com:user/repo.git
+$ cd repo
+```
+
+The .eight[clone] command will create a directory with your repo name in your current working directory. Make sure you're in the right spot!
 
 ---
 
 # Pushing to Origin
-<!-- todo -->
+
+By now, you've used one of the previous options and have a local repo tracking a remote repo.
+
+```bash
+$ git add path/to/files
+$ git commit
+$ git push
+```
+
+.eight[Push] will update all commits on your local branch, so you can commit many times before pushing.
+
+---
+
+# Don't Force It
+
+If the remote has changes that you don't have, .eight[git push] will fail.
+
+```bash
+error: failed to push some refs to 'git@github.com:user/repo.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+---
+
+# Updating From Changed Origin
+
+Situation: both local and remote have new but different commits. You want your changes to be applied __after__ the remote's changes.
+
+```bash
+$ git pull --rebase
+  # gets remote commits, applies yours after
+$ git push
+```
+
+If the rebase works, then you can push your new changes.
+
+---
+
+class: middle, center
+
+# .fourteen[Try It Yourself:]
+
+[Hello World guide](https://guides.github.com/activities/hello-world/)
+
+
+---
+
+# Pull Requests
+
+You can't force your changes on other people.
+
+[Read more here](https://help.github.com/en/articles/about-pull-requests)
+
+---
+
+# Submitting Pull Requests
+
+I'll give you access to a repo so you can make a change.
+
+1. Clone my repo locally.
+2. Make a new branch with your name
+3. Checkout your branch, edit the file, add and commit.
+4. Push your new branch to the remote
+5. [Follow this guide to submit a PR](https://help.github.com/en/articles/creating-a-pull-request)
+
+---
+
+# Creating Forks
+
+Create a copy of someone's repo to make your own changes.
+
+1. [Read this guide](https://help.github.com/en/articles/fork-a-repo)
+2. Clone your fork (see the next slide)
+3. Make some changes
+4. Submit a Pull Request to the original repo
+
+---
+
+# Cloning Forks
+
+You can clone any repo you want!
+
+Just make sure you're looking at the right repo:
+
+```bash
+$ git clone git@github.com/me/repo.git
+$ git clone git@github.com/you/repo.git
+```
 
 ---
 
 # Submitting Issues
-<!-- todo: see github guide: mastering issues -->
+
+Issues are a way to communicate about repos: sharing bugs, wanted features, or simply ideas.
+
+[Read how to create an issue](https://help.github.com/en/articles/creating-an-issue)
+
+You can mention users, highlight code sections, and a ton more.
+
+[Mastering Issues](https://guides.github.com/features/issues/)
 
 ---
 
@@ -52,37 +212,21 @@ class: middle, center
 - Way easier to write
 - Way easier to read
 
-[Github Guide: Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
 ---
 
-# Pull Requests
-<!-- todo -->
+# What is due?
 
----
+By 4:15, show me the following:
 
-# Submitting Pull Requests
-<!-- todo -->
+- [ ] Your own remote repo
+- [ ] A fork of another repo
+- [ ] A PR submitted to my repo
+- [ ] A PR submitted to a fork
+- [ ] An issue on your own repo (mention me .eight[@zachfedor])
+- [ ] Merge a PR submitted to your own repo by a classmate
 
----
-
-# Creating Forks
-<!-- todo -->
-
----
-
-# Cloning Forks
-<!-- todo -->
-
----
-
-# Merging PRs
-<!-- todo -->
-
----
-
-# Pulling Changes
-<!-- todo -->
 
 
     </textarea>

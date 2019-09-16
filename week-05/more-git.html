@@ -92,14 +92,47 @@ class: middle, center
 # Merging Branches is merging two different lines of development.
 
 ---
+
+# Two Types of Merge
+
+- .eight[Fast Forward Merge]: linear update to target branch
+- .eight[Three Way Merge]: non-linear combination of source and target branches
+
+---
 class: middle, center
 
-# Time for a Lab
+![Before Fast Forward Merge](images/ff-1.png)
+
+---
+class: middle, center
+
+![After Fast Forward Merge](images/ff-2.png)
+
+---
+class: middle, center
+
+![Before Three Way Merge](images/tw-1.png)
+
+---
+class: middle, center
+
+![After Three Way Merge](images/tw-2.png)
+
+---
+class: middle, center
+
+# .fourteen[But what if the merge breaks?]
+
+---
+
+# Conflict Resolution
+
+## [Practice fixing merge conflicts](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
 
 ---
 class: center, middle
 
-# .fourteen[Why Use Commit Messages?]
+# .fourteen[What Makes A Good Commit Message?]
 
 ---
 
@@ -132,20 +165,25 @@ class: middle, center
 
 ---
 
-# Let's Remove Them
-
-If you already commited a file and want to remove it:
-```bash
-$ git rm --cached .DS_Store
-```
-
----
-
 # git rm
 
 - The opposite of `git add`
 - Remove files tracked by git
 - Or remove files from both the staging area and the working directory
+
+---
+
+# Let's Remove Them
+
+If you already commited a file and want to remove it from history AND delete it:
+```bash
+$ git rm path/to/file
+```
+
+If you want to remove from git but keep the file on your machine:
+```bash
+$ git rm --cached path/to/file
+```
 
 ---
 class: middle, center
@@ -169,11 +207,6 @@ $ git config --global core.excludesfile ~/.gitignore_global
 - Usually project specific in a file at `my-project/.gitignore`
 
 [Github's gitignore templates](https://github.com/github/gitignore)
-
----
-class: center, middle
-
-[Practice Merge Conflicts in Local Branches](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
 
 ---
 class: center, middle

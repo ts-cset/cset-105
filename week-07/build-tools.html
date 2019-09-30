@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Build Tools</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle, center
+
+Build Tools
+
+---
+class: middle, center
+
+<img alt="Diagram of tools in the Front End Spectrum" src="front-end-spectrum.png" width="100%" />
+
+From [The Front End Spectrum](https://medium.com/@withinsight1/the-front-end-spectrum-c0f30998c9f0) by Jeff Pelletier
+
+---
+
+# What is a Build Tool?
+
+.eight[Generic term for support software.]
+
+- A .eight[dependency] is something needed for your project to run.
+- A .eight[dev dependency] is something needed for you to work on the project.
+- Build tools are dev dependencies that help get your project working
+
+---
+
+# Build Tools are...
+
+- language specific
+- project specific
+- usually configured with a .dotfile
+- a dime a dozen
+
+---
+
+# Categories
+
+- [Package Managers](#package-managers)
+- [Task Runners](#task-runners)
+- [Linters](#linters)
+- [Other Tools](#other-tools)
+
+---
+class: middle, center
+
+# .fourteen[What command installs things for us on MacOS?]
+
+---
+name: package-managers
+
+# Package Managers
+
+.eight[A program to install/uninstall/manage other programs.]
+
+- Platform specific
+- Language specific
+- Use a command or file to get necessary dependencies
+
+---
+
+# Platform
+
+- debian/ubuntu uses `apt`
+- fedora uses `yum`
+- macOS can use `homebrew`*
+- Windows can use `chocolatey`*
+
+\* Unofficial
+
+---
+
+# Language
+
+- JavaScript uses `npm`
+- Python uses `pip`
+- PHP uses `composer`
+- Ruby uses `gem`
+
+Almost all of these are unofficial.
+
+---
+name: 
+
+# Task Runners
+
+.eight[A program to run scripts or complex commands.]
+
+- Language specific
+- Range from simple to complex
+- Easy for a new person to get started in project
+
+---
+
+# Task Runners for Front-End
+
+- Make
+- Grunt
+- Gulp
+
+---
+count: false
+
+# Task Runners for Front-End
+
+- Make
+- Grunt
+- Gulp
+- `npm`
+
+---
+name: linters
+
+# Linters
+
+.eight[A program to analyze the quality of code.]
+
+- Combine with a task runner to analyze when code changes
+- Combine with version control to not allow a commit if quality is too low
+- Usually according to a set of rules
+- You can write your own rules
+
+---
+
+# Linters
+
+- HTML: htmlhint, tidy
+- CSS: csslint, stylelint
+- JS: jshint, eslint, prettier
+
+---
+name: other-tools
+
+# Other Tools
+
+- Control the language version
+- Control editor settings
+- Control deployment process
+
+The possibilities are endless...
+
+---
+class: middle, center
+
+.fourteen["So how can we make HTML and CSS development easier?"]
+
+
+    </textarea>
+
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

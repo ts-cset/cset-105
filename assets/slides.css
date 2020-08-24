@@ -7,8 +7,8 @@ html {
 body {
   background: #fefefe;;
   color: var(--nord1);
-  font-family: Courier, monospace;
-  font-size: calc(.75rem + 1.75vw);
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: calc(.75rem + 1vw);
   margin: 8vw;
 }
 

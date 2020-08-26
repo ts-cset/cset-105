@@ -14,9 +14,11 @@ When in a slideshow, use the following keys to navigate:
 - `?` to get help
 
 
-## Labs
+## Archive
 
-Labs will be posted soon.
+Looking for slides from a previous year?
+
+- [2019 Fall](https://ts-cset.github.io/cset-105/2019-fall/)
 
 
 ## Questions?

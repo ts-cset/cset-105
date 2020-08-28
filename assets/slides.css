@@ -28,7 +28,6 @@ a:hover, a:focus {
 code, pre, .remark-code,
 .remark-inline-code
 {
-  font-size: calc(.65rem + 1.75vw);
   font-weight: 400;
 }
 

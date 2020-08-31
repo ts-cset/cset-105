@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Building Blocks of a Program</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+
+# Building Blocks of a Program
+
+---
+
+# Contents:
+
+- [Comments](#comments)
+- [Expressions vs Statements](#expressions)
+- [Creating a Variable](#variables)
+- [Functions](#functions)
+- [Conditionals](#conditionals)
+- [Loops](#loops)
+- [Extra Rules and Features](#extras)
+
+---
+name: comments
+
+# Comments
+
+.eight[Lines of code that are ignored by the computer.]
+
+---
+name: comments
+count: false
+
+# Comments
+
+.eight[Lines of code that are ignored by the computer.]
+
+- For us, the humans
+- Explain _what_ the program does
+- More important: _why_ the program is doing it
+
+```js
+// Comments start with 2 slashes
+```
+
+---
+name: expressions
+
+# Expressions vs Statements
+
+.eight[Expressions are pieces of code that produce a value.]
+
+- Just like words and phrases in a full sentence, expressions are pieces of code statements.
+- A program is a list of statements, or lines of code.
+
+---
+
+# Expressions vs Statements
+
+How many expressions are in this statement?
+
+```js
+100 + 4 * 11;
+```
+
+---
+count: false
+
+# Expressions vs Statements
+
+- .eleven[100] + .eleven[4] * .eleven[11];
+--
+count: false
+- 100 + .eleven[4 * 11];
+--
+count: false
+- .eleven[100 + 44];
+--
+count: false
+
+Five total expressions in a one small statement.
+---
+name: variables
+
+# Creating a Variable
+
+.eight[A named place to catch and hold on to values.]
+
+- Now our values can stick around for the whole program.
+- Use variables just like values, by writing their name.
+- Different kinds of variables depending on if it will change or where it can go.
+
+---
+
+# Algorithm to Create a Variable
+
+- **name**: what do we call it?
+- **type**: what type of data will it hold?
+- **initialValue**: what will it start holding?
+
+---
+# Algorithm to Create a Variable
+
+Create a variable called **name** of type **type** that starts with the value **initialValue**.
+--
+count: false
+
+```js
+let name = initialValue;
+```
+
+---
+name: functions
+
+# Functions
+
+.eight[Mini algorithms built into JavaScript.]
+
+- They're **abstractions**. Don't need to know _how_ it works, just _how_ to use it.
+- We'll learn two right now.
+- We'll build our own later.
+
+---
+
+# Algorithm to Show Output
+
+- **message**: text to show to user
+
+---
+
+# Algorithm to Show Output
+
+Output the text **message**.
+--
+count: false
+```js
+console.log(message);```
+
+---
+
+# Algorithm to Get Input
+
+- **variable**: where to store value from user
+- **message**: question to ask the user
+
+---
+
+# Algorithm to Get Input
+
+Ask the user **message** and store the answer in **variable**.
+--
+count: false
+```js
+let variable = prompt(message);
+```
+
+---
+
+# Let's Write A Program
+
+.fourteen[Ask the user for two numbers, add them, and show the result.]
+
+- Write it on paper.
+- Don't use code!
+- Just write the algorithm:
+  - Create A Variable
+  - Show Output
+  - Get Input
+
+---
+
+# Let's Write A Program
+
+1. Write the algorithm.
+2. Convert to comments.
+3. Fill out comments with code.
+4. Test the code.
+
+[Eloquent JS: Code Sandbox](https://eloquentjavascript.net/code/#1)
+
+---
+
+# When Things Don't Work
+
+- This is _debugging_ and it's normal.
+- Did you tell it what to do _incorrectly_?
+- OR, did you tell it to do the _wrong thing_?
+
+More often than not, it's a problem with the algorithm.
+
+---
+name: conditionals
+
+# Conditionals
+
+.eight[Different paths the program can take.]
+
+- Normally, a program runs from top to bottom in a straight line.
+- You can wrap parts of the program to run only _some_ of the time.
+- These conditionals can become very complex with many branches.
+
+---
+
+# Algorithm to Make a Branch
+
+- **condition**: true/false value
+- **code**: one or more lines of code
+
+---
+
+# Algorithm to Make a Branch
+
+If **condition** is true, execute **code**.
+--
+count: false
+```js
+if (condition) {
+  code
+}
+```
+
+---
+name: loops
+
+# Loops
+
+.eight[When code needs to run over and over again.]
+
+- Similar to branches, but with repetition.
+- Most complex algorithm yet, can lead to lots of bugs.
+- Most useful. Never copy/paste code, use a loop.
+
+---
+
+# Algorithm to Make a For Loop
+
+- **counter**: integer variable that will control the loop
+- **start**: value of counter at beginning
+- **end**: value of counter at end
+- **change**: value to add to counter after each cycle
+
+---
+
+# Algorithm to Make a For Loop
+
+Begin with **counter** variable at **start** and add **change** on each cycle until **counter** is larger than or equal to **end**.
+--
+count: false
+```js
+for (let counter = start; counter < end; counter = counter + change) {
+  code
+}
+```
+
+---
+name: extras
+
+# Extra Rules and Features
+
+- Allowable names and capitalization rules
+- When to indent lines of code
+- Branching with Switch
+- Looping with While or Do While
+- Breaking out of Loops early
+- Shortcut to update variables
+
+---
+
+# Building Blocks in Other Languages
+
+```c
+#include <stdio.h>
+
+int main() {
+  char userName[20];
+  printf("What is your name? ");
+  scanf("%s", userName);
+  printf("Hi there, %s!", userName);
+  return(0);
+}
+```
+
+---
+
+# Building Blocks in Other Languages
+
+```java
+import java.util.*;
+
+public class Hello {
+  public static void main (String[] args){
+    Scanner input = new Scanner(System.in);
+    String userName;
+    System.out.println("What is your name?");
+    userName = input.nextLine();
+    System.out.println("Hi there, " + username + "!");
+  }
+}
+```
+
+---
+
+# Building Blocks in Other Languages
+
+```python3
+userName = input("What is your name?")
+print(f"Hi there, {userName}")
+```
+
+```js
+let userName = prompt("What is your name?");
+console.log(`Hi there, ${userName}`);
+```
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

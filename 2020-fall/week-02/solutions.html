@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSET-105 | Week 2 | Solutions</title>
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="/cset-105">CSET-105</a>
+        <small>Week 2</small>
+      </h1>
+    </header>
+
+    <main>
+      <h2>Solutions</h2>
+
+      
+      <h3>Practice Problems: Building Blocks of a Program</h3>
+
+      <p>Write the algorithms first and see if you can find the solution on paper. Then go the code sandbox in the book,  convert your algorithm to comments, fill them out with code, then test it!</p>
+
+      <ol>
+        <li>Ask for the user's first and last names, then print a greeting with their full name.
+          <details>
+            <summary>
+              Create variables, get inputs, show outputs.
+            </summary>
+            <pre><code>// create a string variable for firstName
+// create a string variable for lastName
+// create a string variable for fullName
+
+// ask the user "What's your first name?" and put answer in firstName
+// ask the user "What's your last name?" and put answer in lastName
+
+// put firstName + " " + lastName in fullName
+// tell user "Hello " + fullName</code></pre>
+          </details>
+        </li>
+
+        <li>Ask for the user's age, then print out a message saying whether they are old enough to vote.
+          <details>
+            <summary>
+              Create variable, get input, create branches, show outputs
+            </summary>
+            <pre><code>// create a number variable for age
+// ask the user "What's your age?" and put answer in age
+// convert age to number and put result in age
+
+// if age is greater than or equal to 18
+// tell user "You're old enough to vote"
+
+// if age is less than 18
+// tell user "You're not old enough yet"</code></pre>
+          </details>
+        </li>
+
+        <li>Come up with a password. Ask the user for the password and tell them if they guessed it correctly.
+          <details>
+            <summary>
+              Create variables, get input, create branches, show outputs
+            </summary>
+            <pre><code>// create a string variable for password that starts with value "qwerty"
+// create a string variable for guess
+
+// ask the user "What's the password?" and put answer in guess
+
+// if guess is equal to password
+// tell user "You're in!"
+
+// if guess is not equal to password
+// tell user "Incorrect"</code></pre>
+          </details>
+        </li>
+
+        <li>Print out all the numbers from 1 through 10.
+          <details>
+            <summary>
+              Create loop, show output
+            </summary>
+            <pre><code>// begin with counter at 1 and add 1 on each cycle until counter is larger than 10
+// output counter</code></pre>
+          </details>
+        </li>
+
+        <li>Print out all the even numbers from 1 through 10.
+          <details>
+            <summary>
+              Option 1: Create loop, create branch, show output
+            </summary>
+            <pre><code>// begin with counter at 1 and add 1 on each cycle until it is larger than 10
+// if counter is even
+// output counter</code></pre>
+          </details>
+          <details>
+            <summary>
+              Option 2: Create loop, show output
+            </summary>
+            <pre><code>// begin with counter at 2 and add 2 on each cycle until it is larger than 10
+// output counter</code></pre>
+          </details>
+        </li>
+
+        <li>You want to take your friends to the movies, but your car can only carry 4 people. Ask the user how many people are coming and print out the number of trips it will take.
+          <details>
+            <summary>
+              Option 1: Create variables, get input, create branches, show outputs
+            </summary>
+            <pre><code>// create a number variable for seats that starts with value 4
+// create a number variable for friends
+// create a number variable for trips
+
+// ask the user "How many people are going to the movies?" and put answer in friends
+// convert friends to number and put result in friends
+
+// if friends divided by seats has no remainder
+// tell user "It will take " friends / seats " trips"
+
+// if friends divided by seats has remainder
+// tell user "It will take " friends / seats " trips rounded up"</code></pre>
+          </details>
+
+          <details>
+            <summary>
+              Option 1.5: Same as Option 1, but you look up how to round.
+            </summary>
+
+            <pre><code>// no branching required
+Math.ceil(friends / seats);</code></pre>
+          </details>
+
+          <details>
+            <summary>
+              Option 2: Create variables, get input, create loop, show output
+            </summary>
+            <pre><code>// create a number variable for seats that starts with value 4
+// create a number variable for friends
+// create a number variable for trips
+
+// ask the user "How many people are going to the movies?" and put answer in friends
+// convert friends to number and put result in friends
+
+// if friends divided by seats has no remainder
+// tell user "It will take " friends / seats " trips"
+
+// if friends divided by seats has remainder
+// tell user "It will take " friends / seats " trips rounded up"</code></pre>
+          </details>
+        </li>
+
+        <li>Pick a number between 0 and 10. Ask the user to guess the number and print out a success message if they get it correctly. After they guess 3 times, print a message saying they lost the guessing game.
+          <details>
+            <summary>
+              Option 1: Create variables, create for loop, get input, create branches, show output
+            </summary>
+            <pre><code>// create a string variable for number that starts with value "2"
+// create a string variable for guess
+// create a boolean variable for winner that starts with value false
+
+// begin with counter variable at 0 and add 1 on each cycle until counter is larger than or equal to 3
+// if not winner
+//   ask user "Pick a number, 1-10:" and put result in guess
+//   if guess equals number
+//   put true in winner
+//   if guess does not equal number
+//   tell user "Try again"
+
+// outide of loop, if winner
+// tell user "You win!"
+// if not winner
+// tell user "You lose."</code></pre>
+          </details>
+          <details>
+            <summary>
+              Option 2: Create variables, create while loop, get input, create branches, show output              
+            </summary>
+            <pre><code>// create a string variable for number that starts with value "2"
+// create a number variable for tries that starts with value 0
+// create a string variable for guess
+// create a boolean variable for keepGoing that starts with value true
+
+// while keepGoing
+// tries + 1 and put answer in tries
+// ask user "Pick a number, 1-10:" and put result in guess
+// if guess equals number
+//   tell user "You win!"
+//   put false in keepGoing
+// else if tries is greater than or equal to 3
+//   tell user "You lose."
+//   put false in keepGoing</code></pre>
+          </details>
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

@@ -38,6 +38,13 @@ code {
   padding: 0 0.5rem;
 }
 
+pre code {
+  display: block;
+  font-size: 80%;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
 strong, b {
   font-weight: 700;
 }

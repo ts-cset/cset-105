@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a, a:visited {
   color: var(--nord7);
+  transition: color 0.2s ease;
 }
 
 a:hover, a:focus {
@@ -70,6 +71,17 @@ td, th {
   padding: 1rem 2rem;
   text-align: justify;
   vertical-align: top;
+}
+
+summary {
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: background 0.2s ease, background 0.2s ease;
+}
+
+details[open] summary {
+  background: var(--nord3);
+  color: #fefefe;
 }
 
 .zero { color: var(--nord0); }

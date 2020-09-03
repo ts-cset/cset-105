@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Syntax vs Style</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+
+# Syntax vs Style
+
+---
+
+# Contents:
+
+- [What's the difference?](#difference)
+- [Naming Variables](#naming)
+- [Semi-Colons](#semi-colons)
+- [New Lines](#new-lines)
+- [Curly Brackets](#curly-brackets)
+- [Indenting Code](#indenting)
+- [Spacing Code](#spacing)
+- [Parentheses](#parentheses)
+- [Professional Style Guides](#style-guides)
+
+---
+name: difference
+
+# What's the difference?
+
+- Syntax: .eight[rules of the language]
+- Style: .eight[conventions of the language]
+- Broken syntax rules lead to broken programs.
+--
+
+- Broken style rules lead to broken _understanding_.
+--
+
+
+.eleven[Syntax is for machines. Style is for us.]
+
+---
+name: naming
+
+# Naming Variables
+
+- Any word, including alphabetical and numeric characters
+- Can include `$` and `_`, but no other special characters
+- Can't _start_ with numeric character
+- Can't be a reserved keyword, like `for` or `new`
+
+If you forget these rules, the program will break and the error will tell you.
+
+---
+
+# Naming Style
+
+- Use names with meaning: `counter` is more helpful than `x`
+- Use `camelCase` for more than one word for readability
+--
+
+- Special things start with capital letters: `Number` and `Math`
+--
+
+- Other special things start with underscore
+
+---
+
+# Assignment
+
+- You can assign multiple variables on one comma-separated line
+- Usually best to separate the different ideas
+
+```
+// okay
+let one = 'A', two = 'B';
+
+// better
+let user = "Zach";
+let loggedIn = true;
+```
+
+---
+name: semi-colons
+
+# Semi-Colons
+
+- Used to separate statements, complete thoughts of code
+- JS will add missing semi-colons while it's running
+--
+
+- Problem: lines .eleven[!=] statements
+--
+
+- Can put many statements on one line
+- Can split long statements into many lines
+
+---
+
+# Semi-Colon Errors
+
+Two Types:
+
+- JS combines two lines into one statement, instead of your intended two statements
+- JS break two lines into two statements, instead of your intended one statement
+
+Always adding semi-colons prevents the first error.
+
+---
+
+# Semi-Colon Usage
+
+Correct syntax:
+```
+let number = 10;
+console.log(number);
+number += 5;
+
+let novel = "Once upon a time ..."
+  + "... they lived happily ever after";
+```
+
+---
+
+# Semi-Colon Usage
+
+Bad style:
+```
+console.log
+('hello')
+```
+
+Bad syntax:
+```
+return
+  "really long line...";
+```
+
+---
+count: false
+
+# Semi-Colon Usage
+
+Bad style:
+```
+console.log
+('hello');
+```
+
+Bad syntax:
+```
+return undefined;
+  "really long line...";
+```
+
+---
+name: new-lines
+
+# New Lines
+
+- After semi-colons
+- After open curly brackets
+- When you need to split up long lines
+
+Suggestion: Add an extra empty line to create sections of code and separate ideas.
+
+---
+name: curly-brackets
+
+# Curly Brackets
+
+- Used to group any number of statements into one, called a block 
+- Not needed for one statement, but good practice
+- Conditionals, Loops, and more make use of blocks
+- Open the bracket at the start of the block
+- Close the bracket on new line at end
+
+---
+
+# Curly Brackets
+
+```
+block {
+   statements;
+}
+```
+
+---
+count: false
+
+# Curly Brackets
+
+```
+block {
+   statements;
+} block {
+
+}
+```
+
+Chained blocks should start on same line that the previous block ended.
+
+---
+name: indenting
+
+# Indenting Code
+
+- Helps visually represent the structure of the code
+- JS usually uses 2 space _characters_
+--
+
+- Tab key might create space characters, depending on editor settings
+- Tab character is variable width, depending on settings
+--
+
+
+I don't care which, as long as you're **consistent** about using the same character.
+
+---
+name: spacing
+
+# Spacing Code
+
+- Not counting indentation, spaces are used to separate pieces of code
+- JS uses these space characters to stop translating one idea and start the next
+- Extra spaces can make things more readable
+
+---
+
+# Spacing Code
+
+Around operators:
+```
+(2 * 3) - 1 === 5;
+```
+
+Between block keywords and brackets:
+```
+if (true) {
+
+do {
+```
+
+---
+name: parentheses
+
+# Parentheses
+
+- Needed for some block keywords
+- Needed for reordering operators
+- Needed for _calling_ functions
+- Extra parentheses are useless
+
+---
+
+# Parenthesis
+
+For calling functions:
+```
+prompt("What's your name?");
+```
+
+Useless parentheses:
+```
+let number = (4 * 10);
+
+if ((3 &gt; 2) &amp;&amp; (2 &gt; 1)) {
+```
+
+---
+name: style-guides
+
+# Professional Style Guides
+
+- [Google](https://google.github.io/styleguide/)
+- [Airbnb](https://github.com/airbnb/javascript)
+- [jQuery](https://contribute.jquery.org/style-guide/js/)
+
+Companies and big projects use them to stay consistent, regardless of the number of developers.
+
+---
+
+# Comparing Company Style Rules
+
+From bad to good:
+
+- No rules
+- Unwritten rules
+- Documented rules
+- Automatic tools
+
+---
+count: false
+
+# Comparing Company Style Rules
+
+From bad to good:
+
+- No rules: confusing, free-for-all
+- Unwritten rules
+- Documented rules
+- Automatic tools
+
+---
+count: false
+
+# Comparing Company Style Rules
+
+From bad to good:
+
+- No rules: confusing, free-for-all
+- Unwritten rules: nitpicky reviews, not fixing real problems
+- Documented rules
+- Automatic tools
+
+---
+count: false
+
+# Comparing Company Style Rules
+
+From bad to good:
+
+- No rules: confusing, free-for-all
+- Unwritten rules: nitpicky reviews, not fixing real problems
+- Documented rules: no more debate, but requires manual work
+- Automatic tools
+
+---
+count: false
+
+# Comparing Company Style Rules
+
+From bad to good:
+
+- No rules: confusing, free-for-all
+- Unwritten rules: nitpicky reviews, not fixing real problems
+- Documented rules: no more debate, but requires manual work
+- Automatic tools: no more debate, no more work
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Programs Within Programs</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+
+# Programs Within Programs
+
+---
+
+# Contents:
+
+- [The Cookbook Analogy](#cookbook)
+- [Controlling Code Order](#control)
+- [Function Inputs](#inputs)
+- [Function Outputs](#outputs)
+- [Steps to Create a Function](#create)
+- [Steps to Call a Function](#call)
+- [More Examples](#examples)
+
+---
+name: cookbook
+
+# The Cookbook Analogy
+
+1. Preheat oven to 375 degrees.
+2. Chop onions, garlic, and sauté with ground beef until browned.
+3. Stir in tomato sauce, tomato paste, and oregano.
+4. Boil noodles.
+5. Assemble in layers: noodles, then ricotta, then sauce.
+6. Bake covered for 30 minutes.
+
+---
+count: false
+
+# The Cookbook Analogy
+
+1. .eleven[Preheat] oven to 375 degrees.
+2. .eleven[Chop] onions, garlic, and .eleven[sauté] with ground beef until browned.
+3. .eleven[Stir] in tomato sauce, tomato paste, and oregano.
+4. .eleven[Boil] noodles.
+5. .eleven[Assemble] in layers: noodles, then ricotta, then sauce.
+6. .eleven[Bake] covered for 30 minutes.
+
+--
+
+All the verbs are .eleven[functions].
+
+---
+
+# Recipes Within Recipes
+
+Steps like .eleven[chop] or .eleven[sauté] have unwritten steps.
+
+- Assume you know them, or they're written earlier in the cookbook
+- Don't have to write these sub-recipes over and over
+- Pause the main recipe to complete the sub-recipe
+- Isolated from the main recipe's steps
+
+---
+name: control
+
+# Controlling Code Order
+
+- Code executes top down
+--
+count: false
+- Branches allow optional code
+--
+count: false
+- Loops allow repeating code
+--
+count: false
+- Functions allow jumping back and forth in code
+
+---
+
+# Controlling Recipe Order
+
+- Following lasagna recipe on page 87
+- Go back to follow instructions for chopping on page 13
+  - Lasagna recipe is paused
+- Go forward to continue with next steps for lasagna
+
+--
+count: false
+
+The computer keeps track of which function is currently in .eight[control].
+
+---
+name: inputs
+
+# Function Inputs
+
+Instructions for Chopping:
+
+1. Get cutting board and knife
+2. Cut ingredient in slices
+3. Turn ingredient and cut again into small pieces
+
+--
+count: false
+These instructions were written to work with any _ingredient_ from any recipe.
+
+---
+
+# Function Inputs
+
+- .eight[Parameter]: variable specifically for a function, like _ingredient_
+- .eight[Argument]: value that binds to that parameter, like _onion_
+--
+count: false
+- Don't know what the values will be, so we use .eight[parameters] as placeholders
+--
+count: false
+- When we run the function, we pass .eight[arguments] to it and fill up the placeholders
+
+---
+
+# Function Inputs
+
+- Some functions require a certain amount of arguments
+- Some don't need any at all
+- And others allow as many as you want
+
+---
+name: outputs
+
+# Function Outputs
+
+- Some functions are built to produce values
+- They .eight[return] the value back to where it was .eight[called]
+- Created values that are left behind disappear
+- If a function doesn't do this, it will .eight[return] an empty value
+
+---
+name: create
+
+# Steps to Create a Function
+
+- **name**: what do we call it?
+- **parameters**: what inputs will we ask for?
+- **body**: statements of code
+- **value**: optional result to send back
+
+--
+count: false
+
+Create a function called **name** that requires **parameters**, run the **body**, and return a **value** if needed.
+
+---
+
+# Steps to Create a Function
+
+Syntax:
+```javascript
+const name = function(parameters) {
+  body;
+  return value;
+};
+```
+
+---
+
+# Steps to Create a Function
+
+Create a function called **add** that requires two numbers **x** and **y**, **adds them together**, and returns their **sum**
+
+```javascript
+const add = function(x, y) {
+  return x * y;
+};
+```
+
+---
+name: call
+
+# Steps to Run a Function
+
+- **name**: what did we call it?
+- **arguments**: what values do we need to give it?
+
+--
+count: false
+
+Run the function called **name** with **arguments**.
+--
+count: false
+
+```javascript
+name(arguments)```
+
+---
+
+# Steps to Run a Function
+
+Run the function called **add** with **2** and **3**.
+
+```javascript
+add(2, 3)```
+
+--
+count: false
+That expression produces a value, but we don't do anything with it. Let's print it:
+
+```javascript
+console.log(add(2, 3));```
+
+---
+name: examples
+
+# More Examples
+
+This syntax is called a .eight[Function Expression]. Functions are values of a new data type.
+
+```javascript
+const add = function(x, y) {
+  return x * y;
+};
+
+console.log(typeof add);
+// "function"
+```
+
+---
+
+# More Examples
+
+```javascript
+// Function declaration
+function add(x, y) {
+  return x + y;
+}
+
+// Arrow function
+const add = (x, y) =&gt; x + y;```
+
+Two more ways to write the add function:
+
+- Function declaration has weird rules, just like `var`
+- Arrow functions can save space, but have confusing syntax rules
+
+---
+
+# More Examples
+
+Here is a less useful add function. Why?
+
+```javascript
+const add = function(x, y) {
+  console.log(x + y);
+};```
+
+--
+
+Because it doesn't return a value.
+
+```javascript
+add(2, 3)
+// undefined```
+
+The value `5` gets printed, but we can't use it.
+
+---
+
+# More Examples
+
+Returning values instead of printing them has powerful uses:
+
+```javascript
+add(1, add(3, 4)) * 2
+// add(1, 7) * 2
+// 8 * 2
+// 16
+```
+--
+
+.eleven[_A function value is not the same as its return value:_]
+
+```javascript
+add !== add()
+```
+
+---
+
+[Chapter 03: Functions](https://eloquentjavascript.net/03_functions.html) will introduce these concepts:
+
+- **Need to know**:
+  - Scope
+  - The Call Stack
+  - Growing Functions
+  - Side Effects
+- **Good to know**:
+  - Optional Arguments
+  - Functions as Values
+- **Advanced**:
+  - Closure
+  - Recursion
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

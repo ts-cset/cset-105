@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More With Functions</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+
+# More With Functions
+
+---
+
+# Contents:
+
+- [Function Syntax](#syntax)
+- [Scope](#scope)
+- [Hoisting](#hoisting)
+- [What is a Method?](#method)
+- [Closures](#closures)
+- [Recursion](#recursion)
+
+---
+name: syntax
+
+# Function Syntax
+
+```javascript
+// A
+const add = (x, y) =&gt; x + y;
+
+// B
+function add(x, y) {
+  return x + y;
+}
+
+// C
+const add = function(x, y) {
+  return x + y;
+};
+```
+
+---
+
+# Arrow Functions
+
+New in ES6
+
+- Shortest syntax: `() =&gt; {}`
+- See them a lot in later chapters
+- Complex rules
+
+```javascript
+const greet = name =&gt; 'Hello ' + name;
+const greet = (name) =&gt; {
+  return 'Hello ' + name;
+};
+```
+
+---
+
+# Function Declaration
+
+- Next shortest syntax
+- Suffers from .eight[hoisting]
+
+```javascript
+add(1, 2);
+
+function add(x, y) {
+  return x + y;
+}
+```
+
+This doesn't return an error. 
+
+
+---
+
+# Function Expression
+
+Follows all the same rules as `let` and `const`.
+
+```
+add(x, y);
+
+const add = function(x, y) {
+  return x + y;
+}
+```
+
+This creates an error, but that's a good thing.
+
+---
+
+# Which Syntax?
+
+1. Want it short and you know the rules? .eight[Arrow]
+2. Want it simple and consistent? .eight[Expression]
+
+Build good habits and avoid programming by coincidence with function declaration.
+
+---
+name: scope
+
+# Scope
+
+- Global: accessible anywhere
+- Local: only accessible to the place it was defined
+
+Local is relative. If it's local, then what is it local to?
+
+---
+
+# Scope
+
+Two types of Local scoping rules:
+
+- Lexical: only .eight[functions] create new scopes
+- Block: any .eight[curly brackets] create new scopes
+
+The keywords `let` and `const` follow Block scoping rules, while `var` follows Lexical rules.
+
+---
+name: hoisting
+
+# Hoisting
+
+Pre-ES6 term to describe how JavaScript separated .eight[declaration] from .eight[initialization]
+
+```javascript
+// declaration
+var username;
+
+// initialization
+username = 'zach';
+```
+
+```javascript
+var username = 'zach';
+```
+
+[MDN Reference: Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+
+---
+
+# Hoisting Interview Question
+
+```javascript
+var x = 'outside';
+
+function z() {
+  console.log(x);
+  var x = 'inside';
+}
+
+z();
+```
+
+What get's printed?
+
+--
+
+`undefined`
+
+---
+name: method
+
+# What is a Method?
+
+Methods are special functions.
+
+- They're a set of instructions
+- They can take inputs and create ouputs
+- .fourteen[_They are tied to a specific object_]
+
+---
+
+# Example Method
+
+```javascript
+let x = 'hello';
+x.toUpperCase()
+// 'HELLO'
+
+// instead of
+toUpperCase(x)
+```
+
+The method `toUpperCase` is tied to the string.
+
+---
+
+# Another Method
+
+```javascript
+let x = 1.5;
+x.toFixed(4);
+// "1.5000"
+
+x.toUpperCase();
+// Error!
+```
+
+We have different methods depending on the data type.
+
+---
+
+# Helpful Methods
+
+- [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+- [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+Lots of handy tools for your toolbox!
+
+---
+name: closures
+
+# Closures
+
+When a local scope is created, is no longer actively being used, but sticks around because it's needed.
+
+---
+name: recursion
+
+# Recursion
+
+Imagine you are at a new friend's house and you need to get a glass from a kitchen cupboard. How would you find it?
+
+.fourteen[Write an algorithm.]
+
+---
+
+# Recursion
+
+```
+Open cupboard
+If glasses
+  Take one
+  Close cupboards and stop looking
+If no glasses
+  Pick new cupboard
+  Start at top
+```
+
+---
+
+# Recursion
+
+- A function that can call itself.
+- Compared to .eight[iterative] solution that deals with one at a time.
+
+Some problems can be solved with both solutions, some can't.
+
+---
+
+# Needs Recursion
+
+- Find an item in nested containers
+- Find the shortest path between points
+
+Don't know when to stop or how many possibilities there are.
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

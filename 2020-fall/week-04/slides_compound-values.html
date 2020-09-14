@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Values Within Values</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+
+# Values Within Values
+
+---
+
+# Contents:
+
+- [Primitive Values](#primitives)
+- [Compound Values](#compounds)
+- [Objects](#objects)
+- [Object Syntax](#object-syntax)
+- [Arrays](#arrays)
+- [Array Syntax](#array-syntax)
+
+---
+name: primitives
+
+# Primitive Values
+
+Smallest .eight[immutable] pieces of data.
+
+- Strings
+- Numbers
+- Booleans
+- Empty Values (kinda...)
+
+---
+
+# What is Immutability?
+
+A value that cannot be changed, or mutated.
+
+```javascript
+let num = 2;
+num = num + 3;
+console.log(num); // 5
+```
+
+- Three values were created separately.
+- The variable was bound to one value, then another.
+
+---
+
+# What is Immutability?
+
+```javascript
+let name = 'CSET';
+name.toLowerCase(); // 'cset'
+console.log(name);  // 'CSET'
+```
+
+- Two values were created separately.
+- The string method didn't mutate the string
+
+---
+
+# Primitive Limitations
+
+```javascript
+let courseName = 'Intro To Web Applications';
+let courseNumber = 105;
+let courseProgram = 'CSET';
+```
+
+How can we keep these related pieces of data together?
+
+---
+
+# Primitive Limitations
+
+```javascript
+let courseTwoName = 'Web Development I';
+let courseTwoNumber = 110;
+let courseTwoProgram = 'CSET';
+```
+
+Creating separate but related variables for many things gets overwhelming.
+
+--
+
+How many variables will I need?
+
+---
+name: compounds
+
+# Compound Values
+
+A collection of different pieces of data.
+
+- One variable is bound to many values
+- Also known as Data Structures
+- Common structures across many languages, though names are different
+- .eight[Objects] and .eight[Arrays]
+
+---
+class: center, middle
+
+# _Forget what you know about Object-Oriented Programming._
+
+---
+name: objects
+
+# Objects
+
+An Object is a collection of properties.
+
+- .eight[Property] values can be any data type
+- These inner values are bound to a .eight[key]
+- We can add more, update them, or remove them
+
+.fourteen[Analogy:] Think of a file cabinet. A single cabinet holds many named files, each file holds information.
+
+---
+name: object-syntax
+
+# Object Syntax
+
+Let's turn this into an Object:
+
+```javascript
+let courseName = 'Intro To Web Applications';
+let courseNumber = 105;
+let courseProgram = 'CSET';
+```
+
+---
+count: false
+
+# Object Syntax
+
+Let's turn this into an Object:
+
+```javascript
+let course = {
+  name: 'Intro To Web Applications',
+  number: 105,
+  program: 'CSET',
+};
+```
+
+---
+
+# Object Syntax
+
+```javascript
+let variable = {
+  key: value,
+};
+```
+
+- Open brackets to hold list of properties
+- Name each property with a valid variable name
+- Assign any value to the key using a colon `:`
+- Separate properties with a comma `,`
+
+---
+
+# Object Syntax
+
+Get values from inside an object:
+```javascript
+console.log(course['name']);
+// 'Intro To Web Applications'
+
+console.log(course.name);
+// 'Intro To Web Applications'
+```
+
+First syntax is called Bracket Notation, second is Dot Notation.
+
+---
+
+# Object Syntax
+
+Because Objects can hold other Objects, this can get long:
+
+```javascript
+console.log(programs.cset.course.name);
+```
+
+Containers for containers.
+
+---
+
+# Object Syntax
+
+Update a property, or add a new one:
+```javascript
+course.name = 'Some new value';
+```
+
+Remove a property:
+```javascript
+delete course.name;
+console.log(course.name); // undefined
+```
+
+---
+name: arrays
+
+# Arrays
+
+An Array is a special Object built like a list.
+
+- A collection of .eight[elements] of any size
+- Element values can be any data type
+- Bound to an .eight[index] according to order
+
+.fourteen[Analogy:] Think of a 3-ring binder. A binder holds many pages in order, each page holds information.
+
+---
+
+# What's the difference?
+
+- Objects hold .eight[properties], values bound to a .eight[key].
+- Arrays hold .eight[elements], values bound to an .eight[index].
+
+Use Objects when you need names for inner values. Use Arrays when you need order.
+
+---
+name: array-syntax
+
+# Array Syntax
+
+Let's turn this into an Array:
+
+```javascript
+let student1 = 'Amy';
+let student2 = 'Bob';
+let student3 = 'Cathy';
+let student4 = 'Dave';
+```
+
+---
+count: false
+
+# Array Syntax
+
+Let's turn this into an Array:
+
+```javascript
+let students = [
+  'Amy',
+  'Bob',
+  'Cathy',
+  'Dave',
+];
+```
+
+---
+
+# Array Syntax
+
+- Open square brackets to hold list of elements
+- Separate elements with a comma `,`
+
+---
+
+# Array Syntax
+
+Access an element in an Array:
+```javascript
+console.log(students[1]);
+// 'Bob'
+```
+
+.fourteen[Why did we see 'Bob'?]
+
+---
+
+# Cardinal vs Ordinal
+
+- Cardinal numbers are for .eight[C]ounting: one, two, etc.
+- Ordinal numbers are for .eight[O]rder: first, second, etc.
+
+Computers start counting at zero.
+
+```javascript
+console.log(students[0]); // 'Amy'
+```
+
+---
+
+# Array Syntax
+
+Update an element:
+```javascript
+students[2] = 'Charles';
+
+console.log(students);
+// ['Amy', 'Bob', 'Charles', 'Dave'];
+```
+
+Removing is a little harder...
+```javascript
+students.splice(2, 1);
+// ['Amy', 'Bob', 'Dave'];
+```
+
+---
+
+# Why did we talk about immutability?
+
+```javascript
+let student = {
+  name: 'Amy',
+  courses: 2,
+};
+student.courses += 1;
+```
+
+Did our value get mutated?
+
+---
+
+# Why did we talk about immutability?
+
+```javascript
+let letters = ['a', 'b', 'c'];
+letters.push('d');
+console.log(letters);
+// ['a', 'b', 'c', 'd']
+```
+
+Did our value get mutated?
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

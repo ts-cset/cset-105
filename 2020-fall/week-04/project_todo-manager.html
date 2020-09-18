@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSET-105 | Week 4 | Project: ToDo Manager</title>
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&family=Source+Serif+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="/cset-105">CSET-105</a>
+        <small>Week 4</small>
+      </h1>
+    </header>
+
+    <main>
+      <h2>Project: ToDo Manager</h2>
+
+      <p>
+        JavaScript Objects and Arrays allow us to create much more useful programs by combining related values and being able to work with any number of them. We'll put that into practice by building a text-based to-do list manager.
+      </p>
+
+      <p>
+        With simple commands, your program will be able to show a list of things you need to do, add new items, and mark them as completed. Unfortunately, our list will only exist while the program is running and it'll be reset when you quit. We can fix this when we learn more about files or databases.
+      </p>
+
+      <h3>Setup</h3>
+
+      <ol>
+        <li>Go to the <a href="https://repl.it/student/classrooms/211664" target="_blank">repl.it page for our class</a> and scroll down until you see the <strong>Projects</strong> section.</li>
+
+        <li>Click the project title <strong>ToDo Manager</strong> and this will create a <em>fork</em>, your very own copy of my starter project.</li>
+
+        <li>Click the <strong>Run</strong> button and see how the code I wrote works. Notice where the <code>console.log()</code> statements are that you should replace with your own code.</li>
+      </ol>
+
+      <hr>
+
+      <h3>Instructions</h3>
+
+      <p>
+        You need to write the following functions to add features to our program:
+      </p>
+      
+      <ul>
+        <li>
+          Write a function called <code>listTodos</code>:
+          <ul>
+            <li>When called, it should iterate over the items in the <code>TODOS</code> array.</li>
+            <li>If the item is not done, print it out. If it's done, skip it.</li>
+            <li>You should print the item's index and title, like this:</li>
+          </ul>
+          <pre><code>0 - Clean bedroom
+2 - Do homework
+3 - Make dinner</code></pre>
+        </li>
+
+        <li>
+          Write a function called <code>addTodo</code>:
+          <ul>
+            <li>When called, it should prompt the user to enter the task.</li>
+            <li>Make a new item object containing properties called <code>title</code> and <code>done</code>.</li>
+            <li>Store the user's input in the title property and store <code>false</code> in the done property.</li>
+            <li>Now add the item object to the end of the <code>TODOS</code> array.</li>
+          </ul>
+        </li>
+
+        <li>
+          Write a function called <code>completeTodo</code>:
+          <ul>
+            <li>When called, it should prompt the user to enter the index of a task.</li>
+            <li>Using the index, find that todo item in the <code>TODOS</code> array.</li>
+            <li>Then update that item's <code>done</code> property to be <code>true</code>.</li>
+            <li>For example, if the user enters <code>0</code>, the first item should be marked complete.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        Once you have these three functions working, you should add one extra feature of your choice. Maybe that feature is a separate command and function, or maybe it's an addition or modification to the three you already wrote. Some ideas: you could add a date property, you could sort the items differently while listing, etc. Think about how it could be better if you were using it.
+      </p>
+
+      <hr>
+
+      <h3>Grading</h3>
+
+      <ul>
+        <li><strong>10 pts</strong> for well commented code.</li>
+        <li><strong>10 pts</strong> for following the requirements.</li>
+        <li><strong>5 pts</strong> for a program that runs without errors.</li>
+        <li><strong>5 pts</strong> for following code style guidelines.</li>
+      </ul>
+    </main>
+  </body>
+</html>

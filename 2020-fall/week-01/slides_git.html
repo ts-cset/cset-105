@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro to Git</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+# git
+
+???
+little word, lot of power
+anyone used it?
+
+---
+
+# Contents:
+
+1. [Install Git](#install)
+2. [What is Version Control?](#version-control)
+3. [Terminology](#terms)
+4. [Git Configuration](#configure)
+4. [Basic Git Usage](#usage)
+
+---
+name: install
+
+# Install Git
+
+Check if you have it:
+```sh
+$ git --version
+git version 2.28.0
+```
+
+If you don't:
+```sh
+$ brew install git
+```
+
+---
+name: version-control
+class: middle
+
+# What is Version Control?
+
+A programming tool to:
+
+- .eight[Track History] to see how the project changes over time
+- .eight[Branch] into different versions of the project
+- .eight[Collaborate] with others safely, from a small team to thousands of strangers
+
+???
+SCM: Source Code Management
+VCS: Version Control System
+So why is this important?
+
+---
+class: middle, center
+
+![Git Logo](https://git-scm.com/images/logo@2x.png)
+
+A version control system
+
+???
+Enter git
+Not github
+
+---
+class: middle, center
+
+# .eleven[Not]
+
+![Not Github](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnAdQvQAqUbfQPgNBz06uSlkIXTweuBkY1_JEfFncv9BBl4zF2yg)
+
+A separate business with supporting tools for git
+
+---
+
+class: middle
+
+# Short History
+
+1. Linux operating system created in 1991 by Linus Torvalds
+2. Changes were passed around as patch files over email
+3. Switched to a proprietary DVCS in 2002 called BitKeeper
+4. Had to start paying for it 2005, so they ditched it and built their own
+
+[Linux Source Code](https://github.com/torvalds/linux)
+
+???
+Distributed VCS
+
+---
+class: middle, center
+
+# How does it work?
+
+---
+name: terms
+
+# Basic Terms
+
+1. .eight[Repository]: the folder that holds your project, and all the history
+2. .eight[Commit]: a snapshot of the project files at a point in time
+3. .eight[Branch]: a series of commits over time
+4. .eight[Remote]: another computer that also stores the repository
+
+There are way more than this, but this gets us started.
+
+---
+
+# Generic Workflow
+
+1. You start a project and initialize it as a git .eight[repository]
+2. As you work, you save changes in .eight[commits]
+3. Those .eight[commits] update a .eight[branch]
+4. If you want to share or backup your code, you push your changes to a .eight[remote] 
+
+---
+name: configure
+
+# Git Configuration
+
+Git should be installed by now, let's add our info.
+
+```bash
+$ git config --global user.name "Your Name"
+$ git config --global user.email your@email.com
+```
+
+.eleven[Use the same email address as your GitHub account!]
+
+---
+
+# Git Configuration
+
+- A place to store your settings
+- System, .eight[User], and .eight[Local] settings
+- `/etc/gitconfig` .eleven[&lt;] `~/.gitconfig` .eleven[&lt;] `.git/config`
+
+```bash
+$ git config -l
+$ git config core.editor
+```
+
+???
+You might see vim, if you don't want that you can change it to nano.
+
+---
+
+# Git Configuration
+
+Git will sometimes open an editor for you to make notes, pick one that you're familiar with:
+
+```bash
+$ git config --global core.editor "vim"
+$ git config --global core.editor "nano -w"
+
+$ git config --global core.editor "atom --wait"
+$ git config --global core.editor "code --wait"
+```
+
+---
+name: usage
+
+# Basic Git Usage
+
+Depends on our purpose
+
+- Create a Repository for a new project?
+- Track Changes while working on the project?
+- Sync Changes when done working?
+
+---
+
+# Create A Repository
+
+Option 1: New repo on your computer
+
+```bash
+$ cd ~/code
+$ mkdir my-project
+$ cd my-project
+$ git init
+```
+
+.eleven[You only need to do this once.]
+
+---
+
+# Create A Repository
+
+Option 2: Copy an existing repository
+
+```bash
+$ cd ~/code
+$ git clone https://github.com/ts-cset/cset-105.git
+$ cd cset-105
+```
+
+---
+
+# Check The Status
+
+See the three states of your files
+
+```bash
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+.eleven[You'll be typing this all the time.]
+
+---
+
+# Possible File States
+
+- .eight[Untracked]: git doesn't know about the file yet
+- .eight[Staged]: the file has been marked to be included in the next commit snapshot
+- .eight[Unmodified]: the file has been committed
+- .eight[Modified]: the file has changed from the last commit
+
+---
+
+# Possible File States
+
+![File lifecycle](https://git-scm.com/book/en/v2/images/lifecycle.png)
+
+---
+
+# Tracking Changes
+
+The process of 
+
+- Editing
+- Staging
+- Committing
+
+So you've made some changes? Let's save a snapshot:
+
+---
+
+# Stage Changes
+
+Move .eight[untracked] or .eight[modified] files to .eight[Staging Area]
+
+```bash
+$ git add some-file.txt
+$ git status
+...
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+          new file:   some-file.txt
+```
+
+---
+
+# Commit Changes
+
+Save a snapshot of the project right now
+
+```bash
+$ git commit
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+---
+
+# Sync Changes
+
+Share or backup the project to the .eight[remote]
+
+```bash
+$ git push
+```
+
+---
+
+# More Practice
+
+- [Official Book - Pro Git](https://git-scm.com/book/en/v2)
+- [Atlassian Tutorial - Getting Started](https://www.atlassian.com/git/tutorials/setting-up-a-repository)
+- [Github Guide](https://guides.github.com/introduction/git-handbook/)
+- [Github Practice - Git-it](https://github.com/jlord/git-it-electron#what-to-install)
+
+
+---
+
+# Next Week
+
+- Branching and Merging
+- Undoing Things
+- More GitHub Tools
+- Forking and Pull Requests
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

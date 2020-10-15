@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git Collaboration</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../assets/slides.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle
+
+<span>.eight[CSET-105]</span><br>
+<span>.eight[Intro to Web Applications]</span>
+
+Collaborating with Git
+
+---
+
+# Quick Tip: .eight[Help]
+
+```bash
+$ git help
+  # provides list of common commands
+$ git help &lt;command&gt;
+  # provides man page for specific command
+$ git help add
+```
+
+???
+Frequently, you'll see a word in angle brackets in the man pages.
+No, this isn't an HTML tag. Wrong class. It's a variable, it means
+replace this entire thing with what you actually want.
+
+---
+class: middle, center
+
+![Collaborating](https://www.atlassian.com/dam/jcr:60fb4158-0c3e-4f1b-a932-fb4e8a660ee4/05.svg)
+
+
+---
+
+# Remote Repositories
+
+- Create, view, and delete connections to other repos
+- Kind of like a bookmark for a URL
+--
+
+- .eleven[Sharing between remotes is not automatic]
+
+???
+URLs aren't easy to remember or use.
+We need to pull upstream commits into local repo
+and push local commits back up to central repo.
+
+---
+
+# Central Repositories
+
+GitHub, Bitbucket, GitLab, or your own server!
+
+- .eight[Redundancy]: imagine your hard drive fails...
+- .eight[Convenience]: imagine our connected repos, but your computer is off...
+- .eight[Security]: imagine your computer constantly accepting changes from everyone...
+
+---
+class: center
+
+![Diagram of remote repos](https://www.atlassian.com/dam/jcr:df13d351-6189-4f0b-94f0-21d3fcd66038/01.svg)
+
+# `origin &amp; john`
+
+---
+
+# .eight[Remote]
+
+```bash
+$ git remote
+  # lists remote connections
+$ git remote -v
+  # lists remote connections, including URLs (it's Verbose)
+```
+
+---
+
+# Repo URLs
+
+Compare the following Repo URLs
+```bash
+http://host/path/to/repo.git
+ssh://user@host/path/to/repo.git
+```
+
+--
+
+Two protocols to connect to the same repo.
+
+???
+New protocol. Host is just computer name, like github.com.
+HTTP is useful for anonymous read-only
+SSH is way more secure. You authenticate in order to have write access
+
+---
+class: middle, center
+
+# .fourteen[Where did those remotes come from?]
+
+---
+
+# .eight[Origin]
+
+- .eight[git clone] automatically creates a remote pointing at the original
+- That remote is called .eight[origin]
+- Use the origin to pull .eight[upstream] changes or publish your own
+
+---
+
+# .eight[Remote]
+
+```bash
+$ git remote add &lt;name&gt; &lt;URL&gt;
+  # adds a new remote, for example:
+  # git remote add origin https://github.com/ts-cset/cset-105.git
+$ git remote show &lt;name&gt;
+  # shows details about remote
+```
+
+???
+Also git remote remove and rm, which are self-explanatory, but seldom used
+
+---
+
+# Try it!
+
+```bash
+$ cd ~/my-repo
+$ git remote -v
+$ cd ~/cset-105
+$ git remote -v
+```
+---
+class: center, middle
+
+# Branches
+
+![Git Branch Diagram](https://www.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg)
+
+---
+
+# .eight[Branch]
+
+- Bookmark for a certain commit
+- That commit knows it's history, not the branch
+- Think of a branch as a series of commits, not a container for commits
+
+---
+
+# .eight[Branch]
+
+```bash
+$ git branch
+  # lists local branches
+$ git branch -r
+  # lists remote branches
+$ git branch -a
+  # lists all branches
+```
+
+---
+
+# Branch
+
+Creating a repo with `git init` creates a default branch called `master`.
+
+- Consider this the "main" branch
+- Other branches can be created or deleted
+
+---
+
+# Look At Another Branch
+
+```bash
+$ git checkout <branch>
+$ git checkout master
+```
+
+Think of "checkout" like a library book:
+- Grab commits from a branch
+- Change the files to show that branch
+
+---
+
+# Combine Branches
+
+Work from one branch can be added into another branch.
+
+```bash
+$ git checkout master
+$ git merge new-feature
+```
+
+This added changes from the .eight[new-feature] branch into the .eight[master] branch.
+
+---
+class: center, middle
+
+![Syncing From a Remote](https://www.atlassian.com/dam/jcr:1774e4e9-6945-4a66-9f0f-329f0bef24cb/hero.svg)
+
+---
+
+# Syncing Files
+
+Three places for files now:
+
+1. The actual files on your computer: .eight[working directory]
+2. The information tracked in git _locally_
+3. The information tracked in git _remotely_
+
+---
+
+# Syncing with Fetch
+
+- Downloads commits and .eight[refs] into your local repo
+- Doesn't make any changes to your working directory
+- View these changes by using .eight[git checkout] command
+- Safer of the two options
+
+
+---
+
+# .eight[Fetch]
+
+```bash
+$ git fetch
+  # fetches all branches
+$ git fetch &lt;remote&gt; &lt;branch&gt;
+  # fetches a specific remote branch
+```
+
+---
+
+# Try it!
+
+```bash
+$ cd ~/cset-105
+$ git status
+$ git fetch origin
+$ git status
+```
+
+---
+class: center
+
+# Advanced Topic
+
+Read up on how to use fetch, checkout, log, and merge to get changes safely:
+
+[Advanced Git Fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
+
+---
+
+# .eight[Pull]
+
+- Downloads commits and refs into your local repo
+- Immediately updates your working directory to match
+- Shortcut for .eight[git fetch; git merge]
+- Destructive, but easier to learn
+
+???
+Totally fine to use now, if it's easier for you
+---
+class: center, middle
+
+![Git Pull Diagram 1](../../assets/images/git-pull-1.png)
+
+---
+
+![Git Pull Diagram 2](../../assets/images/git-pull-2.png)
+
+---
+class: center, middle
+
+![Git Pull Diagram 3](../../assets/images/git-pull-3.png)
+
+---
+
+# Try it!
+
+```bash
+$ git pull
+  # fetches and merges changes
+$ git status
+  # should say up to date with origin/master
+```
+
+---
+
+# 3-Way Merging
+
+![Git Merge Diagram](https://www.atlassian.com/dam/jcr:83323200-3c57-4c29-9b7e-e67e98745427/Branch-1.png)
+
+---
+
+# Advanced Topic
+
+Read up on how to resolve conflicts that happen when merging:
+
+[Advanced Git Merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+---
+
+# Practice
+
+- Do to [LearnGitBranching.js.org](https://learngitbranching.js.org/)
+- Complete "Introduction Sequence" on Main tab
+- Complete "Push &amp; Pull -- Git Remotes" on Remote tab
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
